@@ -1,15 +1,9 @@
 name: Trigger Target Workflow
 
 on:
-  push:
-    inputs:
-      target_service: 'DevOps2023Asg1'
-        description: 'DevOps2023Asg1_Test'
-        required: true
-      target_version: 'v1.0'
-        description: 'Automated testing'
-        required: true
-
+  push
+    branches:
+      - 'main'
 jobs:
   trigger:
     runs-on: ubuntu-latest
@@ -21,8 +15,8 @@ jobs:
           repo_owner="DevOpsTeamE" 
           repo_name="DevOps2023Asg1"  
           event_type="trigger-workflow" 
-          service=${{ github.event.inputs.target_service }}"
-          version="${{ github.event.inputs.target_version }}"
+          service='DevOps2023Asg1'
+          version="v1.0"
   
           curl -L \
             -X POST \
