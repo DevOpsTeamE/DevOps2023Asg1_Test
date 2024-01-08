@@ -1,7 +1,6 @@
 name: Trigger Target Workflow
-
 on:
-  push
+  push:
     branches:
       - 'main'
 jobs:
