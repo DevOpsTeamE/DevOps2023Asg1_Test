@@ -3,10 +3,10 @@ name: Trigger Target Workflow
 on:
   push:
     inputs:
-      target_service:
+      target_service: 'DevOps2023Asg1'
         description: 'DevOps2023Asg1_Test'
         required: true
-      target_version:
+      target_version: 'v1.0'
         description: 'Automated testing'
         required: true
 
