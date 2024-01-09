@@ -6,8 +6,7 @@ def app():
     app = create_app()
     app.config.update({"TESTING": True})
 
-    with app.test_client() as client:
-        yield client
+    yield app
 
 @pytest.fixture
 def client(app):
