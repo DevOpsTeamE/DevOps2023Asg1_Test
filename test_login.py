@@ -1,24 +1,18 @@
-import pytest
-from main import create_app 
-
-@pytest.fixture
-def app():
-    app = create_app()
-    app.config.update({"TESTING": True})
-
-    yield app
-
-@pytest.fixture
-def client(app):
-    return app.test_client()
-
+from test import client, app
+from flask import session
 
 def test_login_successfully(client):
-    response = client.post('/login', json={'username': 'correctName', 'password': 'correctPW'})
-    assert response.status_code == 200
-    assert b'{"message": "Login Successful"}' in response.data
+    with client:
+        response = client.post('/login', data={'username': 'test_user', 'password': ''}, follow_redirects=True)
+        assert response.status_code == 200
+        assert session.get('role_name') == 'Admin'
+        assert session.get('user')['username'] == 'test_user'
+        assert session.get('user')['password'] == ''
+        assert len(response.history) == 1
+        assert response.request.path == '/admin/'
 
 def test_login_unsuccessful(client):
-    response = client.post('/login', json={'username': 'invalid_user', 'password': 'invalid_password'})    
-    assert response.status_code == 401
-    assert b'{"message": "Invalid username or password"}' in response.data
+    response = client.post('/login', data={'username': 'wrong_user', 'password': 'password'}, follow_redirects=True)
+    assert response.status_code == 200
+    assert len(response.history) == 0
+    assert response.request.path == '/login'
