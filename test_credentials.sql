@@ -1,4 +1,4 @@
-USE devops2023asg1;
+USE DevOps2023Asg1;
 
 INSERT INTO user VALUES('test_user', '', 0, 1);
 
