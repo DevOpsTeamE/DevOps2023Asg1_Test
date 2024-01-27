@@ -1,5 +1,8 @@
 import pytest
-from main import create_app 
+from main import create_app
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys 
 
 @pytest.fixture
 def app():
