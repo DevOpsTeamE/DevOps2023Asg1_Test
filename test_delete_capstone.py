@@ -9,7 +9,7 @@ def test_delete_capstone_successfully(client):
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
     assert capstone.role ==1
-    assert capstone.nstudent ==4
+    assert capstone.nstudents ==4
     assert capstone.year ==2024
     assert capstone.title =='test_title'
     assert capstone.companyname =='test_company'
@@ -29,7 +29,7 @@ def test_delete_capstone_none(client):
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
     assert capstone.role ==1
-    assert capstone.nstudent ==4
+    assert capstone.nstudents ==4
     assert capstone.year ==2024
     assert capstone.title =='test_title'
     assert capstone.companyname =='test_company'
