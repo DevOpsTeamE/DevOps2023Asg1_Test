@@ -17,7 +17,7 @@ def test_delete_capstone_successfully(client):
     assert capstone.description =='test_description'
     #Delete
     delete_capstone_title('test_delete_title')
-    capstones = query_capstone('test_delete_title')
+    capstones = query_capstone(2024, 'test_delete_title')
     #If entry is deleted, no entries is returned upon calling the query
     assert len(capstones) == 0
 

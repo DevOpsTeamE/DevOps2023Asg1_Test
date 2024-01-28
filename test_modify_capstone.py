@@ -5,7 +5,7 @@ from controllers.utilities.capstone import create_capstone, get_capstone_by_titl
 def test_modify_capstone_successfully(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_modify_title', 'test_company', 'test_contact', 'test_description')
-    capstone = get_capstone_by_title('test_title')
+    capstone = get_capstone_by_title('test_modify_title')
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
     assert capstone.role ==1
@@ -33,7 +33,7 @@ def test_modify_capstone_successfully(client):
 def test_modify_capstone_none(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_modify_title_1', 'test_company', 'test_contact', 'test_description')
-    capstone = get_capstone_by_title('test_title')
+    capstone = get_capstone_by_title('test_modify_title_1')
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
     assert capstone.role ==1
