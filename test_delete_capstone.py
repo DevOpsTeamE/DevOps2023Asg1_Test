@@ -1,11 +1,11 @@
 from test import client, app
-from controllers.utilities.capstone import create_capstone, query_capstone, delete_capstone_title
+from controllers.utilities.capstone import create_capstone, get_capstone_by_title, delete_capstone_title
 
 
 def test_delete_capstone_successfully(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
-    allcapstones = query_capstone('2024', 'test_title')
+    allcapstones = get_capstone_by_title('2024', 'test_title')
     capstone = allcapstones[0]
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
@@ -18,7 +18,7 @@ def test_delete_capstone_successfully(client):
     assert capstone.description =='test_description'
     #Delete
     delete_capstone_title('test_title')
-    capstones = query_capstone('2024', 'test_title')
+    capstones = query_capstone('test_title')
     #If entry is deleted, no entries is returned upon calling the query
     assert len(capstones) == 0
 
@@ -26,7 +26,7 @@ def test_delete_capstone_successfully(client):
 def test_delete_capstone_none(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
-    allcapstones = query_capstone('2024', 'test_title')
+    allcapstones = get_capstone_by_title('test_title')
     capstone = allcapstones[0]
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'

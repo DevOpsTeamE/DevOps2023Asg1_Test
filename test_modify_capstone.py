@@ -1,11 +1,11 @@
 from test import client, app
-from controllers.utilities.capstone import create_capstone, query_capstone, update_capstone
+from controllers.utilities.capstone import create_capstone, get_capstone_by_title, update_capstone
 
 
 def test_modify_capstone_successfully(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
-    allcapstones = query_capstone('2024', 'test_title')
+    allcapstones = get_capstone_by_title('test_title')
     capstone = allcapstones[0]
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
@@ -37,7 +37,7 @@ def test_modify_capstone_successfully(client):
 def test_modify_capstone_none(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
-    allcapstones = query_capstone('2024', 'test_title')
+    allcapstones = get_capstone_by_title('test_title')
     capstone = allcapstones[0]
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
