@@ -4,7 +4,7 @@ from controllers.utilities.capstone import create_capstone, query_capstone
 
 def test_create_capstone_successfully(client):
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
-    capstones = query_capstone('2024', 'test_title')
+    capstones = get_capstone_by_title('2024', 'test_title')
     capstone =capstones[0]
     assert capstone.pic =='test_name_1'
     assert capstone.role_id =='1'
