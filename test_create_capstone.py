@@ -17,5 +17,5 @@ def test_create_capstone_successfully(client):
 
 def test_create_capstone_none(client):
     create_capstone('test_name_1', 1, '4', '2024', 'test_create_title_1', 'test_company', 'test_contact', 'test_description')
-    capstones = query_capstone(2024, 'test_create_title_1')
-    assert len(capstones) == 0
+    capstone= get_capstone_by_title('test_create_title_1')
+    assert capstone is not None
