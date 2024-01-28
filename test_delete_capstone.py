@@ -25,7 +25,7 @@ def test_delete_capstone_successfully(client):
 def test_delete_capstone_none(client):
     #Create capstone entry
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
-    capstones = get_capstone_by_title('test_title')
+    capstone = get_capstone_by_title('test_title')
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
     assert capstone.role ==1

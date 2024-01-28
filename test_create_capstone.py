@@ -3,7 +3,7 @@ from controllers.utilities.capstone import create_capstone, query_capstone, get_
 
 
 def test_create_capstone_successfully(client):
-    create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
+    create_capstone('test_name_1', 1, '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
     capstone = get_capstone_by_title('test_title')
     assert capstone.pic =='test_name_1'
     assert capstone.role ==1
@@ -16,6 +16,6 @@ def test_create_capstone_successfully(client):
 
 
 def test_create_capstone_none(client):
-    create_capstone('test_name_1', 'student', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
+    create_capstone('test_name_1', 1, '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
     capstones = query_capstone('test_title')
     assert len(capstones) == 0

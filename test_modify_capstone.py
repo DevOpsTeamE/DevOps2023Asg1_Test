@@ -1,5 +1,5 @@
 from test import client, app
-from controllers.utilities.capstone import create_capstone, get_capstone_by_title, update_capstone
+from controllers.utilities.capstone import create_capstone, get_capstone_by_title, update_capstone, query_capstone
 
 
 def test_modify_capstone_successfully(client):
@@ -8,7 +8,7 @@ def test_modify_capstone_successfully(client):
     capstone = get_capstone_by_title('test_title')
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
-    assert capstone.role_id ==1
+    assert capstone.role ==1
     assert capstone.nstudents ==4
     assert capstone.year ==2024
     assert capstone.title =='test_title'
@@ -24,7 +24,7 @@ def test_modify_capstone_successfully(client):
     retrievedCapstone = newCapstones[0]
     #Check if the returned entry from search matches the newly updated information
     assert retrievedCapstone.pic =='new_name'
-    assert retrievedCapstone.role_id ==1
+    assert retrievedCapstone.role ==1
     assert retrievedCapstone.nstudents ==5
     assert retrievedCapstone.year ==2024
     assert retrievedCapstone.title =='new_title'
