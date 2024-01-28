@@ -24,7 +24,7 @@ def test_modify_capstone_successfully(client):
     assert retrievedCapstone.role ==1
     assert retrievedCapstone.nstudents ==5
     assert retrievedCapstone.year ==2024
-    assert retrievedCapstone.title =='new_title'
+    assert retrievedCapstone.title =='new_title_modified'
     assert retrievedCapstone.companyname =='new_company'
     assert retrievedCapstone.poc =='new_contact'
     assert retrievedCapstone.description =='new_description'
