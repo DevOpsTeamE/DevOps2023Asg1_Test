@@ -1,5 +1,5 @@
 from test import client, app
-from controllers.utilities.capstone import create_capstone, get_capstone_by_title, delete_capstone_title
+from controllers.utilities.capstone import create_capstone, get_capstone_by_title, delete_capstone_title, query_capstone
 
 
 def test_delete_capstone_successfully(client):
