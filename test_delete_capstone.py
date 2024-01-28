@@ -8,9 +8,9 @@ def test_delete_capstone_successfully(client):
     capstone = get_capstone_by_title('2024', 'test_title')
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
-    assert capstone.role =='1'
-    assert capstone.nstudent =='4'
-    assert capstone.year =='2024'
+    assert capstone.role ==1
+    assert capstone.nstudent ==4
+    assert capstone.year ==2024
     assert capstone.title =='test_title'
     assert capstone.companyname =='test_company'
     assert capstone.poc =='test_contact'
@@ -28,9 +28,9 @@ def test_delete_capstone_none(client):
     capstones = get_capstone_by_title('test_title')
     #Check that capstone entry has successfully been created by checking if it exists by querying it 
     assert capstone.pic =='test_name_1'
-    assert capstone.role =='1'
-    assert capstone.nstudent =='4'
-    assert capstone.year =='2024'
+    assert capstone.role ==1
+    assert capstone.nstudent ==4
+    assert capstone.year ==2024
     assert capstone.title =='test_title'
     assert capstone.companyname =='test_company'
     assert capstone.poc =='test_contact'
