@@ -6,7 +6,7 @@ def test_create_capstone_successfully(client):
     create_capstone('test_name_1', '1', '4', '2024', 'test_title', 'test_company', 'test_contact', 'test_description')
     capstone = get_capstone_by_title('test_title')
     assert capstone.pic =='test_name_1'
-    assert capstone.role_id =='1'
+    assert capstone.role =='1'
     assert capstone.nstudent =='4'
     assert capstone.year =='2024'
     assert capstone.title =='test_title'
