@@ -17,4 +17,4 @@ def test_starting_app(client):
     response = client.get('/')
     assert response.status_code == 200
     assert b'Welcome to the TSAO Capstone Records System' in response.data
-    assert b'Login' in response.data
+    assert b'Sign In' in response.data
