@@ -6,7 +6,6 @@ on:
 jobs:
   trigger:
     runs-on: ubuntu-latest
-
     steps:
       - name: Trigger Workflow in Another Repository
         run: |
